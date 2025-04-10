@@ -879,8 +879,8 @@ function App() {
     <div
       className={`min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"} flex`}
     >
-      {/* Botón de menú móvil - Ajustado para no superponerse con el título */}
-      <div className="lg:hidden fixed top-0 left-0 z-50 p-4">
+      {/* Botón de menú móvil */}
+      <div className="lg:hidden fixed top-0 left-0 z-40 p-4">
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`p-2 rounded-md ${
@@ -918,12 +918,13 @@ function App() {
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 fixed lg:fixed w-64 ${
           darkMode ? "bg-gray-800" : "bg-white"
-        } shadow-lg h-screen z-40 flex flex-col transition-transform duration-300 ease-in-out`}
+        } shadow-lg h-screen z-50 flex flex-col transition-transform duration-300 ease-in-out overflow-y-auto`}
       >
+        {/* Cabecera del panel lateral */}
         <div
           className={`p-4 border-b ${
             darkMode ? "border-gray-700" : "border-gray-200"
-          }`}
+          } flex-shrink-0`}
         >
           <div className="flex items-center">
             <svg
@@ -951,6 +952,7 @@ function App() {
           </div>
         </div>
 
+        {/* Contenido principal del panel lateral */}
         <div className="flex-1 p-4 overflow-y-auto">
           <div className="mb-6">
             <h2
@@ -1080,10 +1082,11 @@ function App() {
           </div>
         </div>
 
+        {/* Pie del panel lateral */}
         <div
           className={`p-4 border-t ${
             darkMode ? "border-gray-700" : "border-gray-200"
-          }`}
+          } flex-shrink-0`}
         >
           <div className="flex items-center justify-between mb-4">
             <div>
